@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Field from "../components/forms/Field";
 import {Link} from "react-router-dom";
 import UsersAPI from "../services/usersAPI";
+import {toast} from "react-toastify";
 
 const RegisterPage = ({ history }) => {
     const [user, setUser] = useState({
@@ -34,12 +35,13 @@ const RegisterPage = ({ history }) => {
         if (user.password !== user.passwordConfirm) {
             apiErrors.passwordConfirm = "Les deux mots de passe ne sont pas identiques";
             setErrors(apiErrors);
+            toast.error("Erreur(s) dans votre formulaire");
             return;
         }
         try {
             await UsersAPI.register(user);
             setErrors({});
-            // TODO : Flash success
+            toast.success("Vous êtes désormais inscrit, vous pouvez vous connecter ! ")
             history.replace("/login");
         } catch (error) {
             console.log(error.response);
@@ -52,7 +54,7 @@ const RegisterPage = ({ history }) => {
                 setErrors(apiErrors);
             }
 
-            // TODO : Flash error
+            toast.error("Erreur(s) dans votre formulaire");
         }
 
         console.log(user);

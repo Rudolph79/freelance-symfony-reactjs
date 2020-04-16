@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react';
 import Field from "../components/forms/Field";
 import {Link} from "react-router-dom";
 import CustomersAPI from '../services/customersAPI';
+import {toast} from "react-toastify";
+import FormContentLoader from "../components/loaders/FormContentLoader";
 
 const CustomerPage = ({ match, history }) => {
     const { id = "new" } = match.params;
-    if (id !== "new") {
+    /* if (id !== "new") {
         console.log(+id);
-    }
+    }*/
     const [customer, setCustomer] = useState({
         lastName: "",
         firstName: "",
@@ -23,14 +25,16 @@ const CustomerPage = ({ match, history }) => {
     });
 
     const [editing, setEditing] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     // Récupération du Customer en fonction de l'identifiant
     const fetchCustomer = async (id) => {
         try {
             const { firstName, lastName, email, company } = await CustomersAPI.find(id);
             setCustomer({ firstName, lastName, email, company });
+            setLoading(false);
         } catch (error) {
-            // TODO : Notification flash d'erreur
+            toast.error("Le client n'a pas être chargé");
             history.replace("/customers");
         }
     };
@@ -38,6 +42,7 @@ const CustomerPage = ({ match, history }) => {
     // Chargement du customer si besoin au chargement du composant ou au chargement de l'identifiant
     useEffect(() => {
         if (id !== "new") {
+            setLoading(true);
             setEditing(true);
             fetchCustomer(id);
         }
@@ -63,11 +68,11 @@ const CustomerPage = ({ match, history }) => {
             if (editing) {
                 await CustomersAPI.update(id, customer);
                 setErrors({});
-                // TODO: Flash notification de succès
+                toast.success("Le client a bien été modifié");
             } else {
                 await CustomersAPI.create(customer);
                 setErrors({});
-                // TODO: Flash notification de succès
+                toast.success("Le client a bien été créé");
                 history.replace("/customers");
             }
             // setErrors({});
@@ -78,10 +83,8 @@ const CustomerPage = ({ match, history }) => {
                 violations.forEach(violation => {
                     apiErrors[violation.propertyPath] = violation.message;
                 });
-
                 setErrors(apiErrors);
-
-                // TODO: Flash notification d'erreurs
+                toast.error("Erreur(s) dans votre formulaire");
             }
         }
     };
@@ -90,7 +93,8 @@ const CustomerPage = ({ match, history }) => {
             {(!editing && <h1>Création d'un client</h1>) || (
                 <h1>Mise à jour d'un client</h1>
             )}
-
+            {loading && <FormContentLoader />}
+            {!loading && (
             <form onSubmit={handleSubmit}>
                 <Field name="lastName" label="Nom de famille"
                        placeholder="Nom de famille du client" value={customer.lastName}
@@ -117,7 +121,7 @@ const CustomerPage = ({ match, history }) => {
                         Retour à la liste
                     </Link>
                 </div>
-            </form>
+            </form>) }
         </>
     );
 };

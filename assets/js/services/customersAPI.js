@@ -7,7 +7,7 @@ function findAll() {
 }
 
 function find(id) {
-    Axios.get("http://localhost:8000/api/customers/" + id)
+    return Axios.get("http://localhost:8000/api/customers/" + id)
          .then(response => response.data);
 }
 
