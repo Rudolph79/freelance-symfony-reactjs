@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from "../components/Pagination";
 import customersAPI from "../services/customersAPI";
-import Axios from "axios";
+import { Link } from 'react-router-dom';
 
 const CustomersPage = (props) => {
     const [customers, setCustomers] = useState([]);
@@ -37,20 +37,6 @@ const CustomersPage = (props) => {
             console.log(error.response);
             setCustomers(originalCustomers);
         }
-        /* try {
-            customersAPI.delete(id)
-                .then(response => console.log('Ok customer bien supprimé'))
-        } catch (error) {
-            console.log(error.response);
-            setCustomers(originalCustomers);
-        }*/
-        // Deuxième méthode
-        /* customersAPI.delete(id)
-            .then(response => console.log('Ok customer bien supprimé'))
-            .catch(error => {
-                setCustomers(originalCustomers);
-                console.log(error.response);
-            });*/
     }
 
     // Gestion du changement de page
@@ -81,7 +67,12 @@ const CustomersPage = (props) => {
     const paginatedCustomers = Pagination.getDate(filteredCustomers, currentPage, itemsPerPage);
 
     return <>
-        <h1>Liste des clients</h1>
+        <div className="mb-3 d-flex justify-content-between align-items-center">
+            <h1>Liste des clients</h1>
+            <Link to="/customers/new" className="btn btn-primary">
+                Créer un client
+            </Link>
+        </div>
 
         <div className="form-group">
             <input type="text" onChange={handleSearch} value={search}

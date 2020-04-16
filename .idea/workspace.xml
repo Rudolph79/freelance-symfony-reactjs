@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b347e63a-aac9-493a-976c-acc8c95dbdbd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/js/components/PrivateRoute.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/contexts/AuthContext.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/pages/LoginPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/services/AuthAPI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/forms/Field.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/forms/Select.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/CustomerPage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/InvoicePage.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/pages/RegisterPage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/CustomersPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/CustomersPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/InvoicesPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/InvoicesPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/LoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/services/customersAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/services/customersAPI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/services/invoicesAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/services/invoicesAPI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +25,6 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>setA</find>
-      <find>to</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -205,7 +203,9 @@
       <workItem from="1585992273002" duration="48112000" />
       <workItem from="1586185223651" duration="592000" />
       <workItem from="1586186099992" duration="5941000" />
-      <workItem from="1586368572057" duration="27221000" />
+      <workItem from="1586368572057" duration="33241000" />
+      <workItem from="1586895131825" duration="1287000" />
+      <workItem from="1586938573667" duration="45463000" />
     </task>
     <servers />
   </component>
@@ -225,6 +225,10 @@
       <screen x="0" y="23" width="1280" height="729" />
     </state>
     <state x="143" y="23" key="SettingsEditor/0.23.1280.729@0.23.1280.729" timestamp="1586035071472" />
+    <state width="500" height="445" key="SwitcherDM" timestamp="1587030205575">
+      <screen x="0" y="23" width="1280" height="727" />
+    </state>
+    <state width="500" height="445" key="SwitcherDM/0.23.1280.727@0.23.1280.727" timestamp="1587030205575" />
     <state x="299" y="76" width="670" height="672" key="search.everywhere.popup" timestamp="1586423520837">
       <screen x="0" y="23" width="1280" height="724" />
     </state>
